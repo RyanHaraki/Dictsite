@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">   
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=python&amp;skin=sunburst"></script> 
+    <title>EasyDict</title>
+</head>
+<body>
+
+
+
+  <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading">Welcome! </div>
+          <div class="list-group list-group-flush">
+            <a href="{{url_for('home')}}" class="list-group-item list-group-item-action bg-light">Home</a>
+            <a href="{{url_for('about')}}" class="list-group-item list-group-item-action bg-light">About</a>
+            <a href="{{url_for('tutorial')}}" class="list-group-item list-group-item-action bg-light">Flask Guide</a>
+            <a href="{{url_for('contact')}}" class="list-group-item list-group-item-action bg-light">Contact</a>
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+    
+          <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <a class="navbar-brand" href="#">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        EasyDict
+                      </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <!-- Example split danger button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Menu</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{url_for('home')}}">Home</a>
+                      <a class="dropdown-item" href="{{url_for('about')}}">About</a>
+                      <a class="dropdown-item" href="{{url_for('tutorial')}}">Flask Guide</a>
+                      <a class="dropdown-item" href="{{url_for('contact')}}">Contact</a>
+                  </div>
+                
+                <li class="nav-item active">
+                  <a class="nav-link ml-4" href="#">Made by Ryan Haraki <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+            </div>
+          
+            
+          </nav>
+    
+          <div class="container-fluid">
+            
+            <p>
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    
+      </div>
+      <!-- /#wrapper -->
+
+    
+    <script type="text/javascript" src="url_for('static', filename='script.js')"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

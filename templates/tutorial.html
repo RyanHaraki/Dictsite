@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="mt-4">Beginners Flask Tutorial</h1>
+
+<div class="ml-4">
+        <div class="row">
+            <div class="col-8">
+    
+                      <p class="mt-4">So I'm going to be showing you guys how to create a basic Flask app to get you started,
+                        it's only going to be the setup for the Python code so no HTML, CSS etc will be provided. 
+                        To get that you're going to have to do the dirty work of reading the docs.
+                      </p>
+                      
+                      <h5>Installing Flask</h5>
+                      <p>The first thing we want to do is go into the terminal and instal Flask. To do this we are
+                        going to use pip. Remember, if you're on windows use pip, and if you're on mac use pip3. This should
+                        take a few seconds and it'll prompt you it's done.
+                      </p>
+    
+                      <pre class="prettyprint">
+# Mac
+pip3 install flask
+#Windows
+pip install flask
+    </pre>  
+    
+    <h5>Importing flask</h5>
+    <p>Now that we've installed Flask, all we have to do now is import it to include it in our app.
+      Remember, the reason we import Flask from flask is because Flask is an object of the flask library.
+    </p>
+    
+    <pre class="prettyprint">
+from flask import Flask</pre>
+    
+    <h5>Creating an instance of Flask</h5>
+    <p>The next thing we want to do is create an instance of flask. The first and 
+      only argument is the name of our app's module or package. Since we are only using one file, we are going to put __name__
+      as our argument. <a href="https://www.youtube.com/watch?v=sugvnHA7ElY"> More on this here.</a>
+      It's important to understand what exactly __name__ is and what I mean by us only using one file,
+      so I recommend you watch the video as we are going to be using __name__ again later.
+    </p>
+    
+    <pre class="prettyprint">
+from flask import Flask
+     
+app = Flask(__name__) #Just added</pre>
+    
+    <h5>Creating the route</h5>
+    <p>Now, we are finally set up to begin creating the page. We are first going to use the route()
+      director. This basically gives our page a URL to reference from other pages, and this 
+      URL will trigger the function. We then create a function and give it a name. In this case 
+      I am creating a homepage so I'm going to give it the name home. It's best practice to just 
+      give your function the same name as the route above it. Now that we've created a function, 
+      we are going to need to return something. In Flask what we return is what we see on the page.
+      This could be a string, or an html file. In our case we don't want to overcomplicate things,
+      so we will return a string saying "I am home". This string will be what we see on the page.
+    </p>
+    
+    <pre class="prettyprint">
+from flask import Flask
+     
+app = Flask(__name__)
+    
+@app.route("/home") #This app.route() and function just added
+def home(): 
+    return "I am home"</pre>
+    
+    
+    <h5>Running the app</h5>
+    <p>Your basic webpage is finished! All that's left to do is run it. We first want to include a 
+      conditional checking to see if we are on our 'main file' so to speak. Since we only have one 
+      file this is true, so we will then run the app with app.run(). The argument taken in basically
+      allows us to edit the app and refresh the page without having to run the script all over again.
+      Now just go to your command line, run the program, and voila! Your first Flask website! I will
+      be leaving links to the docs and some useful resources for learning Flask below so you can 
+      get started on learning how to REALLY make flask programs. Best of luck to you all!
+    </p>
+    
+    <pre class="prettyprint">
+from flask import Flask
+     
+app = Flask(__name__)
+    
+@app.route("/home") #This app.route() and function just added
+def home(): 
+    return "I am home"
+    
+if __name__ == '__main__':
+    app.run(debug=True)</pre>
+    
+    <pre class="prettyprint">
+python3 site.py #Assuming we have named the app site.py, but just insert your filename there instead.</pre>
+        
+    
+    
+<h3 class="mt-4">Quick Tip</h3>
+    <p>This tip is meant for all of you newbie coders out there. While I still have a lot to learn, I believe this
+    method is what enabled me to improve at coding and go from building command line apps saying "Hello World" to
+    something like my first web app. When I first started coding. I thought that all I had to do was watch a bunch of videos to become good, but now I realize that the way
+    to really impprove your coding skills is <strong>LEARNING BY BUILDING.</strong> I cannot stress how much
+    this has helped me improve over the last 1-2 months, and I think once you get a good idea of the syntax
+    of a language and how to use things like external modules and libaries you should immediately start building
+    your own applications. </p>
+                        
+    <h3>Useful Resources</h3>
+    <ul>
+        <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask documentation</a></li>
+        <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/">Base of this tutorial</a></li>
+        <li><a href="https://www.youtube.com/watch?v=Z1RJmh_OqeA">46 minute video to introduce you to Flask where you make a basic todo web app and deploy to Heroku</a></li>
+        <li><a href="https://www.youtube.com/watch?v=mqhxxeeTbu0&t=505s">Part 1 in a series on Flask by Tech with Tim, who is a fantastic youtuber for Python tutorials</a></li>
+        <li><a href="https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH">Part 1 of a comprehensive 11 hour youtube series in which you make a full featured web app </a></li>
+    </ul>
+          <div class="col-3 mb-5"></div>
+            </div>
+        </div>
+       
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="mt-4">Home</h1>
+<p class="mt-4">Welcome to EasyDict, just enter any english word you want and the enjoy the definition!</p>
+
+
+
+        <form method="POST">
+                <div class="form-row align-items-center mt-4">
+                  <div class="col-sm-3 my-1">
+                    <label class="sr-only" for="inlineFormInputName"></label>
+                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Enter your word" name="word">
+                    <div class="form-field"></div>
+                  </div>         
+                  <div class="col-auto my-1">
+                    <input type="submit" class="btn btn-primary"></input>
+                  </div>
+                </div>
+              </form>
+
+<h4 class="mt-4">Definition:</h4>
+
+  {% if request.method == 'POST': %}
+  
+  <p class="mt-2"><strong>{{ word.capitalize() }}</strong>: {{ wordDefinition }} </p>
+  
+  {% endif %}
+
+{% endblock %}
